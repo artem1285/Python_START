@@ -8,10 +8,11 @@
 4
 [1, 2, 6, 24]
 """
-from math import factorial # импортируем модуль math
+from math import factorial  # импортируем модуль math
 num = int(input('Введите число: '))
-result = [] # создаем список, здесь будет выводится сам список 
-for num in range(1, num + 1): # вводим цикл от 1 до числа num + 1. "+1" потому что в range крайнее число не учитыватся
-    result.append(factorial(num)) # метод append. 
+result = []  # создаем список, здесь будет выводится сам список
+# вводим цикл от 1 до числа num + 1. "+1" потому что в range крайнее число не учитыватся
+for num in range(1, num + 1):
+    result.append(factorial(num))  # метод append.
     # Сначала указываем список, для которго вызывыаем метод, имя метода - append и указываем значения.
-print(result) 
+print(result)
