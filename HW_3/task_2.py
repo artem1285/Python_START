@@ -13,3 +13,14 @@
 [2, 3, 5, 6]
 [12, 15]
 """
+from random import randint
+# from random import randint # randint возвращает случайное целочисленное значение
+
+number = int(input('Введите число '))
+first_lst = [randint(0, 10) for i in range(number)]
+print(first_lst)
+
+second_lst = [] # новый лист, в котором будет считаться результат
+for i in range(int((number) // 2) + 1): # размерность  числа / на цело на 2 и до крайнего значения т.е. +1
+    second_lst.append(first_lst[i] * first_lst[-i - 1]) # * элемент который из начала списка на элемент который в конце списка
+print(second_lst) # выводится уже второй список
