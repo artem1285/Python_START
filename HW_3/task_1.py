@@ -11,3 +11,13 @@
 [5, 1, 5, 2, 7, 11]
 14
 """
+
+from random import randint
+number = int(input('Введите число '))
+lst = [randint(0, 10) for _ in range(number)]
+print(lst)
+
+summa = 0
+for i in range(1, number, 2): 
+    summa += lst[i]
+print(summa)
