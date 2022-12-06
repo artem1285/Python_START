@@ -14,6 +14,6 @@ number = int(input('Введите число '))
 # round округляtn число с плавающей точкой до той цифры, которую задает пользователь
 first_lst = [round(uniform(0, 10), 2) for _ in range(number)]
 print(first_lst)
-second_lst = [round(first_lst[i] % 1, 2) # дробную часть числа получаем делением этого числа на единицу с остатком.
-              for i in range(number)]
+second_lst = [round(i - int(i), 2) # дробную часть числа получаем делением этого числа на единицу с остатком.
+              for i in  first_lst]
 print(max(second_lst) - min(second_lst))
