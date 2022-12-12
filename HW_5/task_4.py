@@ -10,3 +10,51 @@
 ыыыыыррррр   аааааагггггггг
 5ы5р3 6а8г
 """
+data = input(
+    "Введите строку символов ")  # Ф принимает на вход оригинальную строку, которую надо зашифровать
+# Ф шифрования
+
+
+def RLE_coding(data):
+    code = ''  # вводим строковую перпменную, куда мы запишем результат работы нашей Ф
+    previous_symbol = ''  # промежуточная строковая переменная, нужна для того что бы переприсваивать текущий символ с предыдущим символом
+    # что бы вести отчет символов если они повторяются
+    count = 1  # счетчик
+
+    if not data:  # если в data ничего нет, тогда
+        return ''  # возвращаем пустую строку
+
+    # тут берем текущий символ (current_symbol) в data
+    for current_symbol in data:
+        if current_symbol != previous_symbol:  # если текущий символ не равен предыдущему
+            if previous_symbol:  # если предыдущий не nool
+                # тогда в code мы его длаем строчным str(count), потому что он будт частью строки кодирования
+                code += str(count) + previous_symbol
+            count = 1
+            # переприсвение, тот который был предыдущий, он будет текущий
+            previous_symbol = current_symbol
+        else:
+            if count == 9:  # ограничение, что бы не было больше 9 иначе Ф раскодировки будет неправильно
+                code += str(count) + previous_symbol
+                count = 1
+            count += 1
+    code += str(count) + previous_symbol
+    return (code)
+
+
+code = RLE_coding(data)
+print(code)
+# часть дешифрования
+
+
+def RLE_decoding(data):
+    decode = ''  # переменная которая будет накапливать в себе всю информацию по поэтапномк раскодированию записи
+    for i in range(0, len(data), 2):  # будет от нуля до конца строки len(data), с шагом 2
+        # тут будем брать по 2 элемента, зазадим первый i и второй аргумент i +2
+        count, symbol = data[i: i + 2]
+        # count хранит количество повторений, symbol переменая содержащая сама символ
+        decode += symbol * int(count)
+    return decode
+
+
+print(RLE_decoding(code))
