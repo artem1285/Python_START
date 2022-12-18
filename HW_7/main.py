@@ -12,3 +12,8 @@ model – модуль работы с данными.
 logger – модуль логгирования.
 controller – связь между модулями.
 """
+
+from controller import start # Подключаем контроллер
+
+if __name__ == '__main__': # запускаем через это
+    start()
